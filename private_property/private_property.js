@@ -1,11 +1,11 @@
-//Immediately Invoked Function that returns constructor "InnerPerson" 
+//Immediately Invoked Function that returns function "InnerPerson" (= Constructor)
 var Person = (function() {
 	/* "country" is local variable that cannot be accessed outside the Immediately Invoked Function 
 	   "country" is private static property */
 	var country = "The Netherlands";
 
 	var InnerPerson = function(name, age) {
-		/* "age" is local variable that cannot be accessed outside the "InnerPerson" function (=constructor)
+		/* "age" is local variable that cannot be accessed outside function "InnerPerson" (= Constructor)
 		   "age" is private instance property */		
 		var age = age;
 		// "name" is public instance property
@@ -22,17 +22,19 @@ var Person = (function() {
 		}
 	}
 
-	//"setName" is prototype method that has access to instance property "name" via variable "this"
+	/*"setName" is prototype method of "InnerPerson" that has access to property "name" 
+	   of an instance of "InnerPerson" via variable "this" */
 	InnerPerson.prototype.setName = function(aname) {
 		this.name = aname;
 	}
 
-	//"getCountry" is prototype method and has access to local variable "country"
+	//"getCountry" is prototype method of "InnerPerson" that has access to local variable "country"
 	InnerPerson.prototype.getCountry = function() {
 		return country;
 	}
 
-	/* "setCountry" is constructor method and has access to local variable "country" 
+	/* "setCountry" is method of function "InnerPerson (= Constructor) and has access to local variable "country" 
+	   Note that a function is an object too that can be extended with properties and methods.
 	   "setCountry" is public static method */
 	InnerPerson.setCountry = function(acountry) {
 		country = acountry;
