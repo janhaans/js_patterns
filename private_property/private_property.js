@@ -1,6 +1,7 @@
+// Create MYAPP namespace
 var MYAPP = {};
 
-//Immediately Invoked Function that returns function "InnerPerson" (= Constructor)
+//Immediately Invoked Function Expression that returns function "InnerPerson" (= Constructor)
 MYAPP.Person = (function() {
 	/* "country" is local variable that cannot be accessed outside the Immediately Invoked Function 
 	   "country" is private static property */
