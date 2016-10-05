@@ -1,5 +1,7 @@
+var MYAPP = {};
+
 //Immediately Invoked Function that returns function "InnerPerson" (= Constructor)
-var Person = (function() {
+MYAPP.Person = (function() {
 	/* "country" is local variable that cannot be accessed outside the Immediately Invoked Function 
 	   "country" is private static property */
 	var country = "The Netherlands";
@@ -43,13 +45,13 @@ var Person = (function() {
 	return InnerPerson;
 }());
 
-var person1 = new Person("John", 10),
-    person2 = new Person("Emma", 8);
+var person1 = new MYAPP.Person("John", 10),
+    person2 = new MYAPP.Person("Emma", 8);
 
 console.log(person1.name + " is " + person1.getAge() + " years old and lives in : " + person1.getCountry());
 console.log(person2.name + " is " + person2.getAge() + " years old and lives in : " + person2.getCountry());
 
-Person.setCountry ("USA");
+MYAPP.Person.setCountry ("USA");
 person1.setAge(20);
 person1.setName("John the Man");
 person2.setAge(18);
